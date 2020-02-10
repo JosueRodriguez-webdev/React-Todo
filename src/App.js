@@ -8,9 +8,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-        id: '',
-        note: '',
-        clearNote: false
+      noteArray: []
     }
 }
 
@@ -20,7 +18,7 @@ class App extends React.Component {
         note: note,
         clearNote: false
     }
-    this.setState({...this.state, newNote})
+    this.setState({noteArray: [...this.state.noteArray, newNote]})
   }
 
 
@@ -28,7 +26,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoForm addNewNote={this.addNewNote}/>
-        <TodoList/>
+        <TodoList arrayList={this.state.noteArray}/>
       </div>
     );
   }

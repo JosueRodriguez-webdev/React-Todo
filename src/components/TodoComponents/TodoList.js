@@ -9,6 +9,10 @@ class TodoList extends React.Component {
     render() {
         return(
             <div>
+                <h1>Todo List!</h1>
+                {this.props.arrayList.map(notes => (
+                <Todo notes={notes.note}/>
+        ))}
 
             </div>
         )

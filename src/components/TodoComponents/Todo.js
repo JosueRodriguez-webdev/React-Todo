@@ -2,11 +2,14 @@
 
 import React from 'react';
 
-function Todo() {
+function Todo(props) {
+    console.log(props)
 
         return(
             <div>
-                <h1>Todo</h1>
+                <ul>
+        <li>{props.notes}</li>
+                </ul>
             </div>
         )
 }
