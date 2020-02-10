@@ -4,21 +4,16 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-class TodoList extends React.Component {
-    constructor() {
-        super();
-        this.state = [{
-            id: '',
-            note: '',
-            clearNote: false
-        }]
-    }
-
-    render() {
+function TodoList(props) {
+    
         return(
-            <div>Hello World!</div>
+            <div>
+                <h1>Your List</h1>
+                <ul>
+        <li>{props.state.note}</li>
+                </ul>
+            </div>
         )
-    }
 }
 
 export default TodoList;
