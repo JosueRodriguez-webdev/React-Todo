@@ -2,16 +2,17 @@
 // feel free to change this component.js into TodoList.js
 
 import React from 'react';
-import { render } from 'react-dom';
+
+import Todo from './Todo'
 
 function TodoList(props) {
-    
+console.log(props)
+
         return(
             <div>
-                <h1>Your List</h1>
-                <ul>
-        <li>{props.state.note}</li>
-                </ul>
+                {props.state.map(notes => (
+                    <Todo key={notes.id} notes={notes}/>
+                ))}
             </div>
         )
 }

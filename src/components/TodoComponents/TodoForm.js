@@ -1,14 +1,14 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 function TodoForm(props) {
+    // console.log(props)
 
         return(
             <div>
                 <div>Notepad</div>
                 <input placeholder='Type Note Here...' />
-                <button >Submit</button>
-                <button >Clear</button>
+                <button onSubmit={props.handleNoteInput}>Post Note</button>
+                <button onSubmit={props.handleClearButton}>Delete Note</button>
             </div>
         )
 }

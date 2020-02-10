@@ -1,7 +1,8 @@
 import React from 'react';
 
-import TodoForm from './components/TodoComponents/TodoForm'
+import TodoForm from './components/TodoComponents/TodoForm.js'
 import TodoList from './components/TodoComponents/TodoList.js';
+import Todo from './components/TodoComponents/Todo'
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -16,6 +17,7 @@ class App extends React.Component {
     }]
 }
 
+// Functions for handlind the clear button
 handleClearButton = () => {
   this.setState({clearNote: true})
   this.conditionOnClearNote();
@@ -28,15 +30,15 @@ conditionOnClearNote = (props)=> {
 }
 
 
-
+// function for handling the post note button
 handleNoteInput = event => {
-  this.setState({note: event.target.value, id: Date.now()})
+  this.setState({note: event.target.value})
 }
 
   render() {
     return (
       <div>
-        <TodoForm setState={this.setState}/>
+        <TodoForm setState={this.setState} handleClearButton={this.handleClearButton} handleNoteInput={this.handleNoteInput}/>
         <TodoList state={this.state}/>
       </div>
     );
