@@ -1,20 +1,18 @@
-// your components will all go in this `component` directory.
-// feel free to change this component.js into TodoList.js
+// This component maps over data and send it to Todo.js to display.
 
 import React from 'react';
 
 import Todo from './Todo'
 
-function TodoList(props) {
-console.log(props)
+class TodoList extends React.Component {
 
+    render() {
         return(
             <div>
-                {props.state.map(notes => (
-                    <Todo key={notes.id} notes={notes}/>
-                ))}
+
             </div>
         )
+}
 }
 
 export default TodoList;

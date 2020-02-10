@@ -1,14 +1,12 @@
+// This component displays content on screen.
+
 import React from 'react';
 
-function Todo(props) {
-// console.log(props)
+function Todo() {
 
         return(
             <div>
-                <h1>Your List</h1>
-                <ul>
-        <li>{props.notes.note}</li>
-                </ul>
+                <h1>Todo</h1>
             </div>
         )
 }
