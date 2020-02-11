@@ -13,7 +13,7 @@ class TodoList extends React.Component {
                 {this.props.arrayList.map(notes => (
                 <Todo key={notes.id} notes={notes} toggleNote={this.props.toggleNote}/>
         ))}
-            <button onClick={() => this.props.deleteNote}>Delete Note</button>
+            <button onClick={this.props.deleteNote}>Delete Note</button>
             </div>
         )
 }
