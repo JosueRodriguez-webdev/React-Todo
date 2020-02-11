@@ -37,7 +37,7 @@ class App extends React.Component {
 
   deleteNote = () => {
     const updateNote = this.state.noteArray.filter(item => {
-      return (item.clearNote)
+      return (!item.clearNote)
     })
       console.log(updateNote)
       this.setState({noteArray: updateNote})
