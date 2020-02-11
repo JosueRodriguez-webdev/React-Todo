@@ -1,13 +1,58 @@
+// Parent Componets to all Todos.
 import React from 'react';
 
+import TodoForm from './components/TodoComponents/TodoForm.js'
+import TodoList from './components/TodoComponents/TodoList.js';
+
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor() {
+    super();
+    this.state = {
+      noteArray: []
+    }
+}
+
+  addNewNote = note => {
+    const newNote = {
+        id: Date.now(),
+        note: note,
+        clearNote: false
+    }
+    this.setState({noteArray: [...this.state.noteArray, newNote]})
+  }
+
+  toggleNote = clickedId => {
+    const updatedNotes = this.state.noteArray.map(item => {
+      if(item.id === clickedId) {
+        return {
+          ...item,
+          clearNote: !item.clearNote
+        } }else {
+          return item;
+        }
+    })
+
+      this.setState({noteArray: updatedNotes})
+  }
+
+  deleteNote = () => {
+    const updateNote = this.state.noteArray.filter(item => {
+      if(item.clearNote === true){
+        return{ ...item,
+        clearNote: !true}
+      } else {
+        return item;
+      }
+    })
+
+      this.setState({noteArray: updateNote})
+  }
+
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <TodoForm addNewNote={this.addNewNote}/>
+        <TodoList arrayList={this.state.noteArray} toggleNote={this.toggleNote} deleteNote={this.deleteNote}/>
       </div>
     );
   }
