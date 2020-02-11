@@ -31,7 +31,7 @@ class TodoForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor='note'>Notepad</label>
                 <input placeholder='Type Note Here...' name='note' onChange={this.handleChange} value={this.state.note}/>
-                <button >Post Note</button>
+                <button type='submit'>Post Note</button>
                 </form>
             </div>
         )

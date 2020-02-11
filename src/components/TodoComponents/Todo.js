@@ -6,9 +6,9 @@ function Todo(props) {
     console.log(props)
 
         return(
-            <div>
-                <ul>
-        <li>{props.notes}</li>
+            <div >
+                <ul onClick={() => props.toggleNote(props.notes.id)}>
+        <li>{props.notes.note}</li>
                 </ul>
             </div>
         )

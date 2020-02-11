@@ -11,9 +11,9 @@ class TodoList extends React.Component {
             <div>
                 <h1>Todo List!</h1>
                 {this.props.arrayList.map(notes => (
-                <Todo notes={notes.note}/>
+                <Todo key={notes.id} notes={notes} toggleNote={this.props.toggleNote}/>
         ))}
-
+            <button onClick={() => this.props.deleteNote}>Delete Note</button>
             </div>
         )
 }

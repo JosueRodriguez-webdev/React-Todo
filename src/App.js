@@ -21,12 +21,38 @@ class App extends React.Component {
     this.setState({noteArray: [...this.state.noteArray, newNote]})
   }
 
+  toggleNote = clickedId => {
+    const updatedNotes = this.state.noteArray.map(item => {
+      if(item.id === clickedId) {
+        return {
+          ...item,
+          clearNote: !item.clearNote
+        } }else {
+          return item;
+        }
+    })
+
+      this.setState({noteArray: updatedNotes})
+  }
+
+  deleteNote = () => {
+    const updateNote = this.state.noteArray.filter(item => {
+      if(item.clearNote === true){
+        return{ ...item,
+        clearNote: !true}
+      } else {
+        return item;
+      }
+    })
+
+      this.setState({noteArray: updateNote})
+  }
 
   render() {
     return (
       <div>
         <TodoForm addNewNote={this.addNewNote}/>
-        <TodoList arrayList={this.state.noteArray}/>
+        <TodoList arrayList={this.state.noteArray} toggleNote={this.toggleNote} deleteNote={this.deleteNote}/>
       </div>
     );
   }
